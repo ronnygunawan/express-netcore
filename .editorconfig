@@ -1,0 +1,169 @@
+[*]
+end_of_line = crlf
+indent_style = tab
+trim_trailing_whitespace = true
+
+[*.cs]
+insert_final_newline = true
+csharp_style_conditional_delegate_call = true:suggestion
+csharp_style_expression_bodied_accessors = when_on_single_line:suggestion
+csharp_style_expression_bodied_constructors = false:warning
+csharp_style_expression_bodied_indexers = when_on_single_line:suggestion
+csharp_style_expression_bodied_methods = false:none
+csharp_style_expression_bodied_operators = when_on_single_line:suggestion
+csharp_style_expression_bodied_properties = when_on_single_line:warning
+csharp_style_inlined_variable_declaration = true:warning
+csharp_style_pattern_matching_over_as_with_null_check = true:warning
+csharp_style_pattern_matching_over_is_with_cast_check = true:suggestion
+csharp_style_var_elsewhere = false:error
+csharp_style_var_for_built_in_types = false:error
+csharp_style_var_when_type_is_apparent = false:error
+csharp_new_line_before_catch = false
+csharp_new_line_before_else = false
+csharp_new_line_before_finally = false
+csharp_new_line_before_open_brace = none
+csharp_new_line_between_query_expression_clauses = true
+csharp_indent_labels = flush_left
+csharp_prefer_simple_default_expression = true:error
+dotnet_sort_system_directives_first = true
+dotnet_style_coalesce_expression = true:warning
+dotnet_style_collection_initializer = true:warning
+dotnet_style_explicit_tuple_names = true:error
+dotnet_style_null_propagation = true:suggestion
+dotnet_style_object_initializer = true:warning
+dotnet_style_qualification_for_event = false:warning
+dotnet_style_qualification_for_field = false:warning
+dotnet_style_qualification_for_method = false:warning
+dotnet_style_qualification_for_property = false:warning
+
+# Methods and Properties must be pascal case
+dotnet_naming_rule.methods_and_properties_must_be_pascal_case.severity = error
+dotnet_naming_rule.methods_and_properties_must_be_pascal_case.symbols = method_and_property_symbols
+dotnet_naming_rule.methods_and_properties_must_be_pascal_case.style = pascal_case_style
+dotnet_naming_symbols.method_and_property_symbols.applicable_kinds = method,property
+dotnet_naming_symbols.method_and_property_symbols.applicable_accessibilities = *
+dotnet_naming_style.pascal_case_style.capitalization = pascal_case
+
+# Async methods must end in Async
+dotnet_naming_rule.async_methods_must_end_with_async.severity = error
+dotnet_naming_rule.async_methods_must_end_with_async.symbols  = method_symbols
+dotnet_naming_rule.async_methods_must_end_with_async.style    = end_in_async_style
+dotnet_naming_symbols.method_symbols.applicable_kinds   = method
+dotnet_naming_symbols.method_symbols.required_modifiers = async
+dotnet_naming_style.end_in_async_style.capitalization  = pascal_case
+dotnet_naming_style.end_in_async_style.required_suffix = Async
+
+# Public members must be pascal case
+dotnet_naming_rule.public_members_must_be_capitalized.severity = error
+dotnet_naming_rule.public_members_must_be_capitalized.symbols  = public_symbols
+dotnet_naming_rule.public_members_must_be_capitalized.style    = pascal_case_style
+dotnet_naming_symbols.public_symbols.applicable_kinds   = property,method,field,event,delegate
+dotnet_naming_symbols.public_symbols.applicable_accessibilities = public,internal,protected,protected_internal
+
+# Named tuples must be pascal case
+dotnet_naming_rule.public_members_must_be_capitalized.severity = warning
+dotnet_naming_rule.public_members_must_be_capitalized.symbols  = named_tuples
+dotnet_naming_rule.public_members_must_be_capitalized.style    = pascal_case_style
+dotnet_naming_symbols.named_tuples.applicable_kinds   = tuples
+dotnet_naming_symbols.named_tuples.applicable_accessibilities = public,internal,protected,protected_internal
+
+# Fields must be camel case prefixed with an underscore
+dotnet_naming_rule.non_public_members_must_be_underscored_camel_case.severity = warning
+dotnet_naming_rule.non_public_members_must_be_underscored_camel_case.symbols  = fields
+dotnet_naming_rule.non_public_members_must_be_underscored_camel_case.style    = underscored_camel_case_style
+dotnet_naming_symbols.fields.applicable_kinds   = field
+dotnet_naming_symbols.fields.applicable_accessibilities = private
+dotnet_naming_style.underscored_camel_case_style.capitalization = camel_case
+dotnet_naming_style.underscored_camel_case_style.required_prefix = _
+
+# Constants must be all uppercase
+dotnet_naming_rule.constant_fields_should_be_upper_case.severity = error
+dotnet_naming_rule.constant_fields_should_be_upper_case.symbols  = constant_fields
+dotnet_naming_rule.constant_fields_should_be_upper_case.style    = upper_case_style
+dotnet_naming_symbols.constant_fields.applicable_kinds   = field
+dotnet_naming_symbols.constant_fields.required_modifiers = const
+dotnet_naming_style.upper_case_style.capitalization = all_upper
+
+# Static readonly fields must be all uppercase
+dotnet_naming_rule.static_readonly_fields_should_be_upper_case.severity = error
+dotnet_naming_rule.static_readonly_fields_should_be_upper_case.symbols  = static_readonly_fields
+dotnet_naming_rule.static_readonly_fields_should_be_upper_case.style    = upper_case_style
+dotnet_naming_symbols.static_readonly_fields.applicable_kinds   = field
+dotnet_naming_symbols.static_readonly_fields.required_modifiers = static,readonly
+dotnet_naming_style.upper_case_style.capitalization = all_upper
+
+# Locals must be camel case
+dotnet_naming_rule.locals_should_be_upper_case.severity = error
+dotnet_naming_rule.locals_should_be_upper_case.symbols  = locals
+dotnet_naming_rule.locals_should_be_upper_case.style    = camel_case_style
+dotnet_naming_symbols.locals.applicable_kinds = locals
+dotnet_naming_style.camel_case_style.capitalization = camel_case
+
+# CA1303: Do not pass literals as localized parameters
+dotnet_diagnostic.CA1303.severity = none
+
+# CA1062: Validate arguments of public methods
+dotnet_diagnostic.CA1062.severity = none
+
+# CA1032: Implement standard exception constructors
+dotnet_diagnostic.CA1032.severity = none
+
+# IDE0044: Add readonly modifier
+dotnet_style_readonly_field = true:none
+
+# IDE0060: Remove unused parameter
+dotnet_code_quality_unused_parameters = all:warning
+
+# RCS1036: Remove redundant empty line.
+dotnet_diagnostic.RCS1036.severity = warning
+
+# RCS1037: Remove trailing white-space.
+dotnet_diagnostic.RCS1037.severity = warning
+
+# IDE0005: Using directive is unnecessary.
+dotnet_diagnostic.IDE0005.severity = warning
+
+# RCS1170: Use read-only auto-implemented property.
+dotnet_diagnostic.RCS1170.severity = warning
+
+# RCS1071: Remove redundant base constructor call.
+dotnet_diagnostic.RCS1071.severity = warning
+
+# RCS1194: Implement exception constructors.
+dotnet_diagnostic.RCS1194.severity = none
+
+# CA1031: Do not catch general exception types
+dotnet_diagnostic.CA1031.severity = none
+
+# CA1308: Normalize strings to uppercase
+dotnet_diagnostic.CA1308.severity = none
+
+# RCS1057: Add empty line between declarations.
+dotnet_diagnostic.RCS1057.severity = warning
+
+# RCS1038: Remove empty statement.
+dotnet_diagnostic.RCS1038.severity = error
+
+# RCS1021: Simplify lambda expression.
+dotnet_diagnostic.RCS1021.severity = none
+
+# RCS1205: Order named arguments according to the order of parameters.
+dotnet_diagnostic.RCS1205.severity = warning
+
+# CA1716: Identifiers should not match keywords
+dotnet_diagnostic.CA1716.severity = none
+
+# RCS1118: Mark local variable as const.
+dotnet_diagnostic.RCS1118.severity = warning
+
+# RCS1169: Make field read-only.
+dotnet_diagnostic.RCS1169.severity = warning
+
+# IDE0011: Add braces
+csharp_prefer_braces = when_multiline:warning
+
+# RCS1001: Add braces (when expression spans over multiple lines).
+dotnet_diagnostic.RCS1001.severity = warning
+
+# RCS1062: Avoid interpolated string with no interpolation.
+dotnet_diagnostic.RCS1062.severity = warning
