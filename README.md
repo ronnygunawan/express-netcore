@@ -47,7 +47,7 @@ app.MapPost("/", (HttpResponse res, Payload body) => res.WriteAsync(body.Name));
 ```cs
 app["home"].Map(home => {
     home.MapGet("", ctx => ctx.Response.WriteAsync("Welcome home."));
-	home.MapGet("{name}", (HttpResponse res, string name) => res.WriteAsync($"Welcome home, {name}."));
+    home.MapGet("{name}", (HttpResponse res, string name) => res.WriteAsync($"Welcome home, {name}."));
 });
 ```
 
