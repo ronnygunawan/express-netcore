@@ -26,4 +26,23 @@
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0-preview2.19525.5" />
 	</ItemGroup>
 
+  <ItemGroup>
+    <None Update="WebAppRouter.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>WebAppRouter.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="WebAppRouter.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>WebAppRouter.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
 </Project>

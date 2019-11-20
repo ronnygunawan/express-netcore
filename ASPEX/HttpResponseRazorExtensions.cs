@@ -20,7 +20,7 @@ namespace ASPEX {
 			ITempDataProvider tempDataProvider = response.HttpContext.RequestServices.GetRequiredService<ITempDataProvider>();
 
 			ActionContext actionContext = new ActionContext(response.HttpContext, new RouteData(), new ActionDescriptor());
-			ViewEngineResult viewEngineResult = razorViewEngine.FindView(actionContext, viewName, false);
+			ViewEngineResult viewEngineResult = razorViewEngine.FindView(actionContext, viewName, true);
 			viewEngineResult.EnsureSuccessful(Array.Empty<string>());
 			IView view = viewEngineResult.View;
 			ViewDataDictionary viewDictionary = new ViewDataDictionary(new EmptyModelMetadataProvider(), actionContext.ModelState) {

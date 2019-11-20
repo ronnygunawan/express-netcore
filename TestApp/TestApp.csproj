@@ -6,17 +6,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Razor\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Razor\Index.cshtml">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ASPEX\ASPEX.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="wwwroot\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="Views\Razor\Index.cshtml">
-      <CopyToOutputDirectory></CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
 
 </Project>

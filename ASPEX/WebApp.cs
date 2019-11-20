@@ -25,6 +25,8 @@ namespace ASPEX {
 			RouteSetupActions = new List<Action<IRouteBuilder>>();
 		}
 
+		public WebAppRouter this[string route] => new WebAppRouter(this, route);
+
 		public WebApp UseUrls(params string[] urls) {
 			_urls = urls;
 			return this;
