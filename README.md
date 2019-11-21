@@ -4,28 +4,33 @@
 
 ```cs
 var app = new WebApp();
-app.MapGet("/", ctx => ctx.Response.WriteAsync("Hello world."));
+app.MapGet("/", ctx => ctx.Response.WriteAsync("Hello idiots!!"));
 app.Run();
 ```
 
-### JSON
-```cs
-app.MapGet("/people/{name}", ctx => ctx.Response.WriteJsonAsync(new {
-    Name = ctx.Request.RouteValues["name"]
-}));
-```
-
-### Razor (WIP)
-```cs
-app.MapGet("/", ctx => ctx.Response.RenderRazorViewAsync("Home/Index"));
-```
-
-### Pug (Planned)
-```cs
-app.MapGet("/", ctx => ctx.Response.RenderPugViewAsync("index.pug"));
-```
-
-### Dependency Injection
+### Method-level Dependency Injection
 ```cs
 app.AddTransient<IService, Service>();
+app.MapGet("/idiots/{name}", (HttpResponse res, IService svc, string name) =>
+    res.WriteJsonAsync(svc.GetIdiot(name))
+);
+app.MapPost("/idiots", async (HttpResponse res, IService svc, AddIdiotPayload body) => {
+    await svc.AddAnIdiotAsync(body.Name, body.IQ);
+    res.StatusCode = 201;
+});
 ```
+
+### Subroutes
+```cs
+app["home"].Map(home => {
+    home.MapGet(...);
+    ...
+});
+```
+
+### This project is a work in progress
+Currently unfinished:
+- Rendering Razor views and Razor pages
+- Blazor support
+- Entity Framework support
+- Authentication and Authorization for idiots
