@@ -11,9 +11,9 @@ app.Run();
 ### Method-level Dependency Injection
 ```cs
 app.AddTransient<IService, Service>();
-app.MapGet("/people/{name}", (HttpResponse res, IService svc, string name) => {
-    return res.WriteJsonAsync(svc.GetPerson(name));
-});
+app.MapGet("/people/{name}", (HttpResponse res, IService svc, string name) =>
+    res.WriteJsonAsync(svc.GetPerson(name))
+);
 app.MapPost("/people", async (HttpResponse res, IService svc, Payload body) => {
     await svc.AddPersonAsync(body);
     res.StatusCode = 201;
