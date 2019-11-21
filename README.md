@@ -29,6 +29,7 @@ app["home"].Map(home => {
 ```
 
 ### This project is a work in progress
-Currently not supported:
+Currently unfinished:
 - Rendering Razor views and Razor pages
 - Blazor
+- Entity Framework
