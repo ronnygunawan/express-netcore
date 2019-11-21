@@ -4,7 +4,7 @@
 
 ```cs
 var app = new WebApp();
-app.MapGet("/", ctx => ctx.Response.WriteAsync("Hello world."));
+app.MapGet("/", ctx => ctx.Response.WriteAsync("Hello idiots!!"));
 app.Run();
 ```
 
