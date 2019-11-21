@@ -20,6 +20,13 @@ app.MapPost("/idiots", async (HttpResponse res, IService svc, AddIdiotPayload bo
 });
 ```
 
+### MVC Controller
+```cs
+app.MapGet("/idiots/{name}", (HttpResponse res, IService svc, string name) =>
+    res.RenderRazorViewAsync("Idiots/Profile", svc.GetIdiot(name))
+);
+```
+
 ### Subroutes
 ```cs
 app["home"].Map(home => {
@@ -29,8 +36,8 @@ app["home"].Map(home => {
 ```
 
 ### This project is a work in progress
-Currently unfinished:
-- Rendering Razor views and Razor pages
-- Blazor support
-- Entity Framework support
-- Authentication and Authorization for idiots
+Currently being developed:
+- [x] ~~Rendering Razor views and Razor pages~~
+- [ ] Blazor support
+- [ ] Entity Framework support
+- [ ] Authentication and Authorization for idiots
