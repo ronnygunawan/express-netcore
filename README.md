@@ -33,3 +33,4 @@ Currently unfinished:
 - Rendering Razor views and Razor pages
 - Blazor support
 - Entity Framework support
+- Authentication and Authorization for idiots
