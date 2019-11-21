@@ -11,11 +11,11 @@ app.Run();
 ### Method-level Dependency Injection
 ```cs
 app.AddTransient<IService, Service>();
-app.MapGet("/people/{name}", (HttpResponse res, IService svc, string name) =>
-    res.WriteJsonAsync(svc.GetPerson(name))
+app.MapGet("/idiots/{name}", (HttpResponse res, IService svc, string name) =>
+    res.WriteJsonAsync(svc.GetIdiot(name))
 );
-app.MapPost("/people", async (HttpResponse res, IService svc, Payload body) => {
-    await svc.AddPersonAsync(body);
+app.MapPost("/idiots", async (HttpResponse res, IService svc, AddIdiotPayload body) => {
+    await svc.AddAnIdiotAsync(body.Name, body.IQ);
     res.StatusCode = 201;
 });
 ```
