@@ -41,3 +41,4 @@ Currently being developed:
 - [ ] Blazor support
 - [ ] Entity Framework support
 - [ ] Authentication and Authorization for idiots
+- [ ] Visual Studio project template
