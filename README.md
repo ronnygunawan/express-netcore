@@ -14,8 +14,8 @@ app.AddTransient<IService, Service>();
 app.MapGet("/people/{name}", (HttpResponse res, IService svc, string name) => {
     res.WriteJsonAsync(svc.GetPerson(name)
 });
-app.MapPost("/people", (HttpResponse res, IService svc, Payload body) => {
-    await svc.AddPerson(body);
+app.MapPost("/people", async (HttpResponse res, IService svc, Payload body) => {
+    await svc.AddPersonAsync(body);
     res.StatusCode = 201;
 });
 ```
