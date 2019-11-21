@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
@@ -17,6 +18,8 @@ namespace ASPEX.Internal {
 
 		public void ConfigureServices(IServiceCollection services) {
 			services.AddControllersWithViews()
+				.AddApplicationPart(Assembly.GetEntryAssembly())
+				.AddRazorRuntimeCompilation()
 				.AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
 			services.AddRazorPages();
 		}

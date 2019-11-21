@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using ASPEX.Internal;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
@@ -55,6 +56,8 @@ namespace ASPEX {
 					}
 					if (_contentRoot != null) {
 						webBuilder.UseContentRoot(_contentRoot);
+					} else {
+						webBuilder.UseContentRoot(Directory.GetCurrentDirectory());
 					}
 					if (_environment != null) {
 						webBuilder.UseEnvironment(_environment);
