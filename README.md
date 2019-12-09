@@ -38,6 +38,7 @@ app["home"].Map(home => {
 ### This project is a work in progress
 Currently being developed:
 - [x] ~~Rendering Razor views and Razor pages~~
+- [ ] Middleware, WebSocket, Server Error Page, and 404 Page
 - [ ] Blazor support
 - [ ] Entity Framework support
 - [ ] Authentication and Authorization for idiots
