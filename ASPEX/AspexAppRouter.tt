@@ -14,7 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 
 namespace ASPEX {
-	public partial class WebApp {
+	public partial class AspexApp {
 <# for (int i = 1; i <= 16; i++) { #>
 		public void MapDelete<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>>(string template, Func<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>, Task> handler) {
 			RouteSetupActions.Add(builder => builder.MapDelete(template, httpContext => {
@@ -85,8 +85,8 @@ namespace ASPEX {
 		}
 
 <# } #>
-		public void Map(Action<WebAppRouter> setupAction) {
-			setupAction.Invoke(new WebAppRouter(this, ""));
+		public void Map(Action<AspexAppRouter> setupAction) {
+			setupAction.Invoke(new AspexAppRouter(this, ""));
 		}
 
 		[SuppressMessage("Globalization", "CA1305:Specify IFormatProvider", Justification = "This is a general purpose library.")]
@@ -142,18 +142,18 @@ namespace ASPEX {
 		}
 	}
 
-	public class WebAppRouter {
-		private readonly WebApp _webApp;
+	public class AspexAppRouter {
+		private readonly AspexApp _aspexApp;
 		private readonly string _basePath;
 
-		public WebAppRouter(WebApp webApp, string basePath) {
-			_webApp = webApp;
+		public AspexAppRouter(AspexApp aspexApp, string basePath) {
+			_aspexApp = aspexApp;
 			_basePath = basePath;
 		}
 
 <# for (int i = 1; i <= 16; i++) { #>
 		public void MapDelete<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>>(string template, Func<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 <# for (int j = 1; j <= i; j++) { #>
@@ -167,7 +167,7 @@ namespace ASPEX {
 <# } #>
 <# for (int i = 1; i <= 16; i++) { #>
 		public void MapGet<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>>(string template, Func<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 <# for (int j = 1; j <= i; j++) { #>
@@ -181,7 +181,7 @@ namespace ASPEX {
 <# } #>
 <# for (int i = 1; i <= 16; i++) { #>
 		public void MapPost<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>>(string template, Func<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 <# for (int j = 1; j <= i; j++) { #>
@@ -195,7 +195,7 @@ namespace ASPEX {
 <# } #>
 <# for (int i = 1; i <= 16; i++) { #>
 		public void MapPut<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>>(string template, Func<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 <# for (int j = 1; j <= i; j++) { #>
@@ -209,7 +209,7 @@ namespace ASPEX {
 <# } #>
 <# for (int i = 1; i <= 16; i++) { #>
 		public void MapVerb<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>>(string verb, string template, Func<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 <# for (int j = 1; j <= i; j++) { #>
@@ -221,7 +221,7 @@ namespace ASPEX {
 		}
 
 <# } #>
-		public void Map(Action<WebAppRouter> setupAction) {
+		public void Map(Action<AspexAppRouter> setupAction) {
 			setupAction.Invoke(this);
 		}
 

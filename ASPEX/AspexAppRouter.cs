@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 
 namespace ASPEX {
-	public partial class WebApp {
+	public partial class AspexApp {
 		public void MapDelete<T1>(string template, Func<T1, Task> handler) {
 			RouteSetupActions.Add(builder => builder.MapDelete(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
@@ -1332,8 +1332,8 @@ namespace ASPEX {
 			}));
 		}
 
-		public void Map(Action<WebAppRouter> setupAction) {
-			setupAction.Invoke(new WebAppRouter(this, ""));
+		public void Map(Action<AspexAppRouter> setupAction) {
+			setupAction.Invoke(new AspexAppRouter(this, ""));
 		}
 
 		[SuppressMessage("Globalization", "CA1305:Specify IFormatProvider", Justification = "This is a general purpose library.")]
@@ -1389,17 +1389,17 @@ namespace ASPEX {
 		}
 	}
 
-	public class WebAppRouter {
-		private readonly WebApp _webApp;
+	public class AspexAppRouter {
+		private readonly AspexApp _aspexApp;
 		private readonly string _basePath;
 
-		public WebAppRouter(WebApp webApp, string basePath) {
-			_webApp = webApp;
+		public AspexAppRouter(AspexApp aspexApp, string basePath) {
+			_aspexApp = aspexApp;
 			_basePath = basePath;
 		}
 
 		public void MapDelete<T1>(string template, Func<T1, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg: GetRequiredArgument<T1>(httpContext, parameters[0].Name!)
@@ -1408,7 +1408,7 @@ namespace ASPEX {
 		}
 
 		public void MapDelete<T1, T2>(string template, Func<T1, T2, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1418,7 +1418,7 @@ namespace ASPEX {
 		}
 
 		public void MapDelete<T1, T2, T3>(string template, Func<T1, T2, T3, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1429,7 +1429,7 @@ namespace ASPEX {
 		}
 
 		public void MapDelete<T1, T2, T3, T4>(string template, Func<T1, T2, T3, T4, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1441,7 +1441,7 @@ namespace ASPEX {
 		}
 
 		public void MapDelete<T1, T2, T3, T4, T5>(string template, Func<T1, T2, T3, T4, T5, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1454,7 +1454,7 @@ namespace ASPEX {
 		}
 
 		public void MapDelete<T1, T2, T3, T4, T5, T6>(string template, Func<T1, T2, T3, T4, T5, T6, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1468,7 +1468,7 @@ namespace ASPEX {
 		}
 
 		public void MapDelete<T1, T2, T3, T4, T5, T6, T7>(string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1483,7 +1483,7 @@ namespace ASPEX {
 		}
 
 		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1499,7 +1499,7 @@ namespace ASPEX {
 		}
 
 		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1516,7 +1516,7 @@ namespace ASPEX {
 		}
 
 		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1534,7 +1534,7 @@ namespace ASPEX {
 		}
 
 		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1553,7 +1553,7 @@ namespace ASPEX {
 		}
 
 		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1573,7 +1573,7 @@ namespace ASPEX {
 		}
 
 		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1594,7 +1594,7 @@ namespace ASPEX {
 		}
 
 		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1616,7 +1616,7 @@ namespace ASPEX {
 		}
 
 		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1639,7 +1639,7 @@ namespace ASPEX {
 		}
 
 		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1663,7 +1663,7 @@ namespace ASPEX {
 		}
 
 		public void MapGet<T1>(string template, Func<T1, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg: GetRequiredArgument<T1>(httpContext, parameters[0].Name!)
@@ -1672,7 +1672,7 @@ namespace ASPEX {
 		}
 
 		public void MapGet<T1, T2>(string template, Func<T1, T2, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1682,7 +1682,7 @@ namespace ASPEX {
 		}
 
 		public void MapGet<T1, T2, T3>(string template, Func<T1, T2, T3, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1693,7 +1693,7 @@ namespace ASPEX {
 		}
 
 		public void MapGet<T1, T2, T3, T4>(string template, Func<T1, T2, T3, T4, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1705,7 +1705,7 @@ namespace ASPEX {
 		}
 
 		public void MapGet<T1, T2, T3, T4, T5>(string template, Func<T1, T2, T3, T4, T5, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1718,7 +1718,7 @@ namespace ASPEX {
 		}
 
 		public void MapGet<T1, T2, T3, T4, T5, T6>(string template, Func<T1, T2, T3, T4, T5, T6, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1732,7 +1732,7 @@ namespace ASPEX {
 		}
 
 		public void MapGet<T1, T2, T3, T4, T5, T6, T7>(string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1747,7 +1747,7 @@ namespace ASPEX {
 		}
 
 		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1763,7 +1763,7 @@ namespace ASPEX {
 		}
 
 		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1780,7 +1780,7 @@ namespace ASPEX {
 		}
 
 		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1798,7 +1798,7 @@ namespace ASPEX {
 		}
 
 		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1817,7 +1817,7 @@ namespace ASPEX {
 		}
 
 		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1837,7 +1837,7 @@ namespace ASPEX {
 		}
 
 		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1858,7 +1858,7 @@ namespace ASPEX {
 		}
 
 		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1880,7 +1880,7 @@ namespace ASPEX {
 		}
 
 		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1903,7 +1903,7 @@ namespace ASPEX {
 		}
 
 		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 					arg1: GetRequiredArgument<T1>(httpContext, parameters[0].Name!),
@@ -1927,7 +1927,7 @@ namespace ASPEX {
 		}
 
 		public void MapPost<T1>(string template, Func<T1, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false)
@@ -1936,7 +1936,7 @@ namespace ASPEX {
 		}
 
 		public void MapPost<T1, T2>(string template, Func<T1, T2, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -1946,7 +1946,7 @@ namespace ASPEX {
 		}
 
 		public void MapPost<T1, T2, T3>(string template, Func<T1, T2, T3, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -1957,7 +1957,7 @@ namespace ASPEX {
 		}
 
 		public void MapPost<T1, T2, T3, T4>(string template, Func<T1, T2, T3, T4, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -1969,7 +1969,7 @@ namespace ASPEX {
 		}
 
 		public void MapPost<T1, T2, T3, T4, T5>(string template, Func<T1, T2, T3, T4, T5, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -1982,7 +1982,7 @@ namespace ASPEX {
 		}
 
 		public void MapPost<T1, T2, T3, T4, T5, T6>(string template, Func<T1, T2, T3, T4, T5, T6, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -1996,7 +1996,7 @@ namespace ASPEX {
 		}
 
 		public void MapPost<T1, T2, T3, T4, T5, T6, T7>(string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2011,7 +2011,7 @@ namespace ASPEX {
 		}
 
 		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2027,7 +2027,7 @@ namespace ASPEX {
 		}
 
 		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2044,7 +2044,7 @@ namespace ASPEX {
 		}
 
 		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2062,7 +2062,7 @@ namespace ASPEX {
 		}
 
 		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2081,7 +2081,7 @@ namespace ASPEX {
 		}
 
 		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2101,7 +2101,7 @@ namespace ASPEX {
 		}
 
 		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2122,7 +2122,7 @@ namespace ASPEX {
 		}
 
 		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2144,7 +2144,7 @@ namespace ASPEX {
 		}
 
 		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2167,7 +2167,7 @@ namespace ASPEX {
 		}
 
 		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2191,7 +2191,7 @@ namespace ASPEX {
 		}
 
 		public void MapPut<T1>(string template, Func<T1, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false)
@@ -2200,7 +2200,7 @@ namespace ASPEX {
 		}
 
 		public void MapPut<T1, T2>(string template, Func<T1, T2, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2210,7 +2210,7 @@ namespace ASPEX {
 		}
 
 		public void MapPut<T1, T2, T3>(string template, Func<T1, T2, T3, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2221,7 +2221,7 @@ namespace ASPEX {
 		}
 
 		public void MapPut<T1, T2, T3, T4>(string template, Func<T1, T2, T3, T4, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2233,7 +2233,7 @@ namespace ASPEX {
 		}
 
 		public void MapPut<T1, T2, T3, T4, T5>(string template, Func<T1, T2, T3, T4, T5, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2246,7 +2246,7 @@ namespace ASPEX {
 		}
 
 		public void MapPut<T1, T2, T3, T4, T5, T6>(string template, Func<T1, T2, T3, T4, T5, T6, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2260,7 +2260,7 @@ namespace ASPEX {
 		}
 
 		public void MapPut<T1, T2, T3, T4, T5, T6, T7>(string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2275,7 +2275,7 @@ namespace ASPEX {
 		}
 
 		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2291,7 +2291,7 @@ namespace ASPEX {
 		}
 
 		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2308,7 +2308,7 @@ namespace ASPEX {
 		}
 
 		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2326,7 +2326,7 @@ namespace ASPEX {
 		}
 
 		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2345,7 +2345,7 @@ namespace ASPEX {
 		}
 
 		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2365,7 +2365,7 @@ namespace ASPEX {
 		}
 
 		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2386,7 +2386,7 @@ namespace ASPEX {
 		}
 
 		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2408,7 +2408,7 @@ namespace ASPEX {
 		}
 
 		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2431,7 +2431,7 @@ namespace ASPEX {
 		}
 
 		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2455,7 +2455,7 @@ namespace ASPEX {
 		}
 
 		public void MapVerb<T1>(string verb, string template, Func<T1, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false)
@@ -2464,7 +2464,7 @@ namespace ASPEX {
 		}
 
 		public void MapVerb<T1, T2>(string verb, string template, Func<T1, T2, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2474,7 +2474,7 @@ namespace ASPEX {
 		}
 
 		public void MapVerb<T1, T2, T3>(string verb, string template, Func<T1, T2, T3, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2485,7 +2485,7 @@ namespace ASPEX {
 		}
 
 		public void MapVerb<T1, T2, T3, T4>(string verb, string template, Func<T1, T2, T3, T4, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2497,7 +2497,7 @@ namespace ASPEX {
 		}
 
 		public void MapVerb<T1, T2, T3, T4, T5>(string verb, string template, Func<T1, T2, T3, T4, T5, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2510,7 +2510,7 @@ namespace ASPEX {
 		}
 
 		public void MapVerb<T1, T2, T3, T4, T5, T6>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2524,7 +2524,7 @@ namespace ASPEX {
 		}
 
 		public void MapVerb<T1, T2, T3, T4, T5, T6, T7>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2539,7 +2539,7 @@ namespace ASPEX {
 		}
 
 		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2555,7 +2555,7 @@ namespace ASPEX {
 		}
 
 		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2572,7 +2572,7 @@ namespace ASPEX {
 		}
 
 		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2590,7 +2590,7 @@ namespace ASPEX {
 		}
 
 		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2609,7 +2609,7 @@ namespace ASPEX {
 		}
 
 		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2629,7 +2629,7 @@ namespace ASPEX {
 		}
 
 		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2650,7 +2650,7 @@ namespace ASPEX {
 		}
 
 		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2672,7 +2672,7 @@ namespace ASPEX {
 		}
 
 		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2695,7 +2695,7 @@ namespace ASPEX {
 		}
 
 		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler) {
-			_webApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 					arg1: await GetBodyOrFormOrRequiredArgumentAsync<T1>(httpContext, parameters[0].Name!).ConfigureAwait(false),
@@ -2718,7 +2718,7 @@ namespace ASPEX {
 			}));
 		}
 
-		public void Map(Action<WebAppRouter> setupAction) {
+		public void Map(Action<AspexAppRouter> setupAction) {
 			setupAction.Invoke(this);
 		}
 

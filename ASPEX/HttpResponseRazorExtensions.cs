@@ -15,7 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace ASPEX {
 	public static class HttpResponseRazorExtensions {
-		public static async Task RenderRazorViewAsync(this HttpResponse response, string viewName, object model, CancellationToken cancellationToken = default) {
+		public static async Task RenderRazorViewAsync(this HttpResponse response, string viewName, object? model = null, CancellationToken cancellationToken = default) {
 			IRazorViewEngine razorViewEngine = response.HttpContext.RequestServices.GetRequiredService<IRazorViewEngine>();
 			ITempDataProvider tempDataProvider = response.HttpContext.RequestServices.GetRequiredService<ITempDataProvider>();
 
@@ -30,7 +30,7 @@ namespace ASPEX {
 			using TextWriter textWriter = new StringWriter();
 			ViewContext viewContext = new ViewContext(actionContext, view, viewDictionary, tempData, textWriter, new HtmlHelperOptions());
 			await view.RenderAsync(viewContext).ConfigureAwait(false);
-			await response.WriteAsync(textWriter.ToString(), cancellationToken).ConfigureAwait(false);
+			await response.WriteAsync(textWriter.ToString()!, cancellationToken).ConfigureAwait(false);
 		}
 	}
 }

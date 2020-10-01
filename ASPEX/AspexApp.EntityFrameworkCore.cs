@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace ASPEX {
-	public partial class WebApp {
+	public partial class AspexApp {
 		public IServiceCollection AddDbContext<TContext>(Action<DbContextOptionsBuilder>? optionsAction = null, ServiceLifetime contextLifetime = ServiceLifetime.Scoped, ServiceLifetime optionsLifetime = ServiceLifetime.Scoped) where TContext : DbContext {
 			_serviceCollection.AddDbContext<TContext>(optionsAction, contextLifetime, optionsLifetime);
 			return _serviceCollection;

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace ASPEX {
-	public partial class WebApp {
+	public partial class AspexApp {
 		public IdentityBuilder AddDefaultIdentity<TUser>() where TUser : class {
 			return _serviceCollection.AddDefaultIdentity<TUser>();
 		}

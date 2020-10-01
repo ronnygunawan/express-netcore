@@ -2,7 +2,7 @@
 using System;
 
 namespace ASPEX {
-	public partial class WebApp {
+	public partial class AspexApp {
 		public IServiceCollection AddScoped(Type serviceType) {
 			_serviceCollection.AddScoped(serviceType);
 			return _serviceCollection;

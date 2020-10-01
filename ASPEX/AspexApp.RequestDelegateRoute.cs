@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 
 namespace ASPEX {
-	public partial class WebApp {
+	public partial class AspexApp {
 		public void MapDelete(string template, RequestDelegate handler) {
 			RouteSetupActions.Add(builder => builder.MapDelete(template, handler));
 		}
