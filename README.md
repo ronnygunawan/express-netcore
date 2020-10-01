@@ -27,7 +27,7 @@ app.MapGet("/idiots/{name}", (HttpResponse res, IService svc, string name) =>
 );
 ```
 
-### Subroutes
+### Routers
 ```cs
 app["home"].Map(home => {
     home.MapGet(...);
