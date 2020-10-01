@@ -226,7 +226,7 @@ namespace ASPEX {
 		}
 
 		[SuppressMessage("Globalization", "CA1305:Specify IFormatProvider", Justification = "This is a general purpose library.")]
-		private T GetRequiredArgument<T>(HttpContext httpContext, string parameterName) {
+		private static T GetRequiredArgument<T>(HttpContext httpContext, string parameterName) {
 			if (typeof(T) == typeof(HttpContext)) {
 				return (T)Convert.ChangeType(httpContext, httpContext.GetType());
 			} else if (typeof(T) == typeof(HttpRequest)) {
@@ -264,7 +264,7 @@ namespace ASPEX {
 		}
 
 		[SuppressMessage("Globalization", "CA1305:Specify IFormatProvider", Justification = "This is a general purpose library.")]
-		private async Task<T> GetBodyOrFormOrRequiredArgumentAsync<T>(HttpContext httpContext, string parameterName) {
+		private static async Task<T> GetBodyOrFormOrRequiredArgumentAsync<T>(HttpContext httpContext, string parameterName) {
 			if (parameterName == "body") {
 				using StreamReader streamReader = new StreamReader(httpContext.Request.Body);
 				string json = await streamReader.ReadToEndAsync().ConfigureAwait(false);

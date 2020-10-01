@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{3894
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorView", "samples\RazorView\RazorView.csproj", "{1E286AE6-8C41-4D4B-99E1-4F6ABE4DE530}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Routers", "samples\Routers\Routers.csproj", "{5EA2F047-E21B-460E-A76F-6B40C0D1A7CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{1E286AE6-8C41-4D4B-99E1-4F6ABE4DE530}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E286AE6-8C41-4D4B-99E1-4F6ABE4DE530}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E286AE6-8C41-4D4B-99E1-4F6ABE4DE530}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EA2F047-E21B-460E-A76F-6B40C0D1A7CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EA2F047-E21B-460E-A76F-6B40C0D1A7CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EA2F047-E21B-460E-A76F-6B40C0D1A7CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EA2F047-E21B-460E-A76F-6B40C0D1A7CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +55,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{0C9CD9C4-7D69-4178-9FCB-6E3B88BED28D} = {38942FA4-F956-4067-B275-5992A63FB1D3}
 		{1E286AE6-8C41-4D4B-99E1-4F6ABE4DE530} = {38942FA4-F956-4067-B275-5992A63FB1D3}
+		{5EA2F047-E21B-460E-A76F-6B40C0D1A7CD} = {38942FA4-F956-4067-B275-5992A63FB1D3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8D293E50-6A3D-451F-8C6C-B2E6A9B035C7}

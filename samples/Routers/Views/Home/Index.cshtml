@@ -1,0 +1,51 @@
+﻿@{
+	ViewBag.Title = "Home";
+}
+
+<h1>COVID-19 Statistics</h1>
+
+<table class="table table-bordered table-light">
+	<thead>
+		<tr>
+			<th>Country/Region</th>
+			<th>Infected</th>
+			<th>Recovered</th>
+			<th>Deaths</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Indonesia</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>DKI Jakarta</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+
+@section Scripts {
+	<script>
+		$(document).ready(() => {
+			fetch("/covid19")
+				.then(response => response.json())
+				.then(data => {
+					$("tbody > tr:first-child > td:nth-child(2)").text(data.infected.toLocaleString());
+					$("tbody > tr:first-child > td:nth-child(3)").text(data.recovered.toLocaleString());
+					$("tbody > tr:first-child > td:nth-child(4)").text(data.fatal.toLocaleString());
+				});
+			fetch("/covid19/jakarta")
+				.then(response => response.json())
+				.then(data => {
+					$("tbody > tr:nth-child(2) > td:nth-child(2)").text(data.infected.toLocaleString());
+					$("tbody > tr:nth-child(2) > td:nth-child(3)").text(data.recovered.toLocaleString());
+					$("tbody > tr:nth-child(2) > td:nth-child(4)").text(data.fatal.toLocaleString());
+				})
+		});
+	</script>
+}

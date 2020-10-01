@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -6,7 +7,6 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Newtonsoft.Json.Serialization;
 
 namespace ASPEX.Internal {
 	internal class Startup {
@@ -16,14 +16,15 @@ namespace ASPEX.Internal {
 			Configuration = configuration;
 		}
 
+		[SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Method called by runtime")]
 		public void ConfigureServices(IServiceCollection services) {
 			services.AddControllersWithViews()
 				.AddApplicationPart(Assembly.GetEntryAssembly())
-				.AddRazorRuntimeCompilation()
-				.AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
+				.AddRazorRuntimeCompilation();
 			services.AddRazorPages();
 		}
 
+		[SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Method called by runtime")]
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
 			if (env.IsDevelopment()) {
 				app.UseDeveloperExceptionPage();
@@ -33,7 +34,7 @@ namespace ASPEX.Internal {
 				// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
 				app.UseHsts();
 			}
-			AspexApp webApp = app.ApplicationServices.GetService<AspexApp>();
+			AspexApp webApp = app.ApplicationServices.GetRequiredService<AspexApp>();
 			if (webApp.UseHttpsRedirection) {
 				app.UseHttpsRedirection();
 			}
