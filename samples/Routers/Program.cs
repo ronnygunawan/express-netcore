@@ -7,6 +7,7 @@ using Routers.Services;
 AspexApp app = new AspexApp(args);
 
 app.AddSingleton<HttpClient>();
+app.AddMemoryCache();
 app.AddTransient<DekontaminasiClient>();
 
 app.MapGet("/", (HttpResponse res) => res.RenderRazorViewAsync("Home/Index"));
