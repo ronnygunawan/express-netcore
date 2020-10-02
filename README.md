@@ -35,7 +35,7 @@ public class StudentsRouter {
     private readonly IService _service;
 
     public StudentsRouter(IService service) {
-        _service = service;_
+        _service = service;
     }
 
     [MapGet("{name}")]
