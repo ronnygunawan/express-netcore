@@ -1,4 +1,4 @@
-# ASPEX - Express-style wrapper for Asp.Net Core
+# Express AspNetCore - Express-style wrapper for Asp.Net Core
 
 ### Hello World
 
