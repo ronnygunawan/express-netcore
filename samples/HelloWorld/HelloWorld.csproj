@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\ASPEX\ASPEX.csproj" />
+    <ProjectReference Include="..\..\ExpressNetCore\ExpressNetCore.csproj" />
   </ItemGroup>
 
 </Project>
