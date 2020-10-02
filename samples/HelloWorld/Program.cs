@@ -1,7 +1,7 @@
 using ASPEX;
 using Microsoft.AspNetCore.Http;
 
-AspexApp app = new AspexApp(args);
+ExpressApp app = new ExpressApp(args);
 
 app.MapGet("/", context => context.Response.WriteAsync("Hello world."));
 

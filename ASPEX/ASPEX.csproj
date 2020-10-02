@@ -12,8 +12,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.0-rc.1.20451.17" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.0-rc.1.20451.17" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.0-rc.1.20451.17" />
+		<PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" Version="5.0.0-rc.1.20451.17" />
 		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.0-rc.1.20451.17" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.0-rc.1.20451.17" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.0-rc.1.20451.17" />
@@ -41,9 +43,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-    <None Update="AspexAppRouter.tt">
+    <None Update="ExpressAppRouter.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>AspexAppRouter.cs</LastGenOutput>
+      <LastGenOutput>ExpressAppRouter.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
@@ -52,10 +54,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="AspexAppRouter.cs">
+    <Compile Update="ExpressAppRouter.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>AspexAppRouter.tt</DependentUpon>
+      <DependentUpon>ExpressAppRouter.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

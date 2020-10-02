@@ -1,0 +1,280 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ output extension=".cs" #>
+using System;
+using System.Diagnostics.CodeAnalysis;
+using System.IO;
+using System.Reflection;
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
+
+namespace ASPEX {
+	public partial class ExpressApp {
+<# for (int i = 1; i <= 16; i++) { #>
+		public void MapDelete<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>>(string template, Func<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>, Task> handler) {
+			RouteSetupActions.Add(builder => builder.MapDelete(template, httpContext => {
+				ParameterInfo[] parameters = handler.Method.GetParameters();
+				return handler.Invoke(
+<# for (int j = 1; j <= i; j++) { #>
+					arg<#= i > 1 ? j.ToString() : "" #>: GetRequiredArgument<T<#= j #>>(httpContext, parameters[<#= j - 1 #>].Name!)<# if (j < i) { #>,<# } #>
+
+<# } #>
+				);
+			}));
+		}
+
+<# } #>
+<# for (int i = 1; i <= 16; i++) { #>
+		public void MapGet<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>>(string template, Func<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>, Task> handler) {
+			RouteSetupActions.Add(builder => builder.MapGet(template, httpContext => {
+				ParameterInfo[] parameters = handler.Method.GetParameters();
+				return handler.Invoke(
+<# for (int j = 1; j <= i; j++) { #>
+					arg<#= i > 1 ? j.ToString() : "" #>: GetRequiredArgument<T<#= j #>>(httpContext, parameters[<#= j - 1 #>].Name!)<# if (j < i) { #>,<# } #>
+
+<# } #>
+				);
+			}));
+		}
+
+<# } #>
+<# for (int i = 1; i <= 16; i++) { #>
+		public void MapPost<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>>(string template, Func<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>, Task> handler) {
+			RouteSetupActions.Add(builder => builder.MapPost(template, async httpContext => {
+				ParameterInfo[] parameters = handler.Method.GetParameters();
+				await handler.Invoke(
+<# for (int j = 1; j <= i; j++) { #>
+					arg<#= i > 1 ? j.ToString() : "" #>: await GetBodyOrFormOrRequiredArgumentAsync<T<#= j #>>(httpContext, parameters[<#= j - 1 #>].Name!).ConfigureAwait(false)<# if (j < i) { #>,<# } #>
+
+<# } #>
+				).ConfigureAwait(false);
+			}));
+		}
+
+<# } #>
+<# for (int i = 1; i <= 16; i++) { #>
+		public void MapPut<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>>(string template, Func<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>, Task> handler) {
+			RouteSetupActions.Add(builder => builder.MapPut(template, async httpContext => {
+				ParameterInfo[] parameters = handler.Method.GetParameters();
+				await handler.Invoke(
+<# for (int j = 1; j <= i; j++) { #>
+					arg<#= i > 1 ? j.ToString() : "" #>: await GetBodyOrFormOrRequiredArgumentAsync<T<#= j #>>(httpContext, parameters[<#= j - 1 #>].Name!).ConfigureAwait(false)<# if (j < i) { #>,<# } #>
+
+<# } #>
+				).ConfigureAwait(false);
+			}));
+		}
+
+<# } #>
+<# for (int i = 1; i <= 16; i++) { #>
+		public void MapVerb<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>>(string verb, string template, Func<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>, Task> handler) {
+			RouteSetupActions.Add(builder => builder.MapVerb(verb, template, async httpContext => {
+				ParameterInfo[] parameters = handler.Method.GetParameters();
+				await handler.Invoke(
+<# for (int j = 1; j <= i; j++) { #>
+					arg<#= i > 1 ? j.ToString() : "" #>: await GetBodyOrFormOrRequiredArgumentAsync<T<#= j #>>(httpContext, parameters[<#= j - 1 #>].Name!).ConfigureAwait(false)<# if (j < i) { #>,<# } #>
+
+<# } #>
+				).ConfigureAwait(false);
+			}));
+		}
+
+<# } #>
+		public void Map(Action<ExpressAppRouter> setupAction) {
+			setupAction.Invoke(new ExpressAppRouter(this, ""));
+		}
+
+		[SuppressMessage("Globalization", "CA1305:Specify IFormatProvider", Justification = "This is a general purpose library.")]
+		private T GetRequiredArgument<T>(HttpContext httpContext, string parameterName) {
+			if (typeof(T) == typeof(HttpContext)) {
+				return (T)Convert.ChangeType(httpContext, httpContext.GetType());
+			} else if (typeof(T) == typeof(HttpRequest)) {
+				HttpRequest request = httpContext.Request;
+				return (T)Convert.ChangeType(request, request.GetType());
+			} else if (typeof(T) == typeof(HttpResponse)) {
+				HttpResponse response = httpContext.Response;
+				return (T)Convert.ChangeType(response, response.GetType());
+			} else if (typeof(T) == typeof(RouteData)) {
+				RouteData routeData = httpContext.GetRouteData();
+				return (T)Convert.ChangeType(routeData, routeData.GetType());
+			} else if (typeof(T) == typeof(CancellationToken)) {
+				return (T)Convert.ChangeType(httpContext.RequestAborted, typeof(CancellationToken));
+			} else if (typeof(T) == typeof(string)) {
+				if (httpContext.GetRouteData().Values.TryGetValue(parameterName, out object value)) {
+					return (T)Convert.ChangeType(value.ToString(), typeof(string))!;
+				} else {
+					return default!;
+				}
+			} else if (typeof(T) == typeof(int) || typeof(T) == typeof(int?)) {
+				if (httpContext.GetRouteData().Values.TryGetValue(parameterName, out object value)) {
+					if (value is string s && int.TryParse(s, out int v)) {
+						return (T)Convert.ChangeType(v, typeof(T));
+					} else if (value is int i) {
+						return (T)Convert.ChangeType(i, typeof(T));
+					} else {
+						return default!;
+					}
+				} else {
+					return default!;
+				}
+			} else {
+				return httpContext.RequestServices.GetRequiredService<T>();
+			}
+		}
+
+		[SuppressMessage("Globalization", "CA1305:Specify IFormatProvider", Justification = "This is a general purpose library.")]
+		private async Task<T> GetBodyOrFormOrRequiredArgumentAsync<T>(HttpContext httpContext, string parameterName) {
+			if (parameterName == "body") {
+				using StreamReader streamReader = new StreamReader(httpContext.Request.Body);
+				string json = await streamReader.ReadToEndAsync().ConfigureAwait(false);
+				return JsonConvert.DeserializeObject<T>(json);
+			} else if (typeof(T) == typeof(IFormCollection)) {
+				IFormCollection form = await httpContext.Request.ReadFormAsync(httpContext.RequestAborted).ConfigureAwait(false);
+				return (T)Convert.ChangeType(form, form.GetType());
+			} else {
+				return GetRequiredArgument<T>(httpContext, parameterName);
+			}
+		}
+	}
+
+	public class ExpressAppRouter {
+		private readonly ExpressApp _aspexApp;
+		private readonly string _basePath;
+
+		public ExpressAppRouter(ExpressApp aspexApp, string basePath) {
+			_aspexApp = aspexApp;
+			_basePath = basePath;
+		}
+
+<# for (int i = 1; i <= 16; i++) { #>
+		public void MapDelete<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>>(string template, Func<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>, Task> handler) {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+				ParameterInfo[] parameters = handler.Method.GetParameters();
+				return handler.Invoke(
+<# for (int j = 1; j <= i; j++) { #>
+					arg<#= i > 1 ? j.ToString() : "" #>: GetRequiredArgument<T<#= j #>>(httpContext, parameters[<#= j - 1 #>].Name!)<# if (j < i) { #>,<# } #>
+
+<# } #>
+				);
+			}));
+		}
+
+<# } #>
+<# for (int i = 1; i <= 16; i++) { #>
+		public void MapGet<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>>(string template, Func<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>, Task> handler) {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+				ParameterInfo[] parameters = handler.Method.GetParameters();
+				return handler.Invoke(
+<# for (int j = 1; j <= i; j++) { #>
+					arg<#= i > 1 ? j.ToString() : "" #>: GetRequiredArgument<T<#= j #>>(httpContext, parameters[<#= j - 1 #>].Name!)<# if (j < i) { #>,<# } #>
+
+<# } #>
+				);
+			}));
+		}
+
+<# } #>
+<# for (int i = 1; i <= 16; i++) { #>
+		public void MapPost<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>>(string template, Func<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>, Task> handler) {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+				ParameterInfo[] parameters = handler.Method.GetParameters();
+				await handler.Invoke(
+<# for (int j = 1; j <= i; j++) { #>
+					arg<#= i > 1 ? j.ToString() : "" #>: await GetBodyOrFormOrRequiredArgumentAsync<T<#= j #>>(httpContext, parameters[<#= j - 1 #>].Name!).ConfigureAwait(false)<# if (j < i) { #>,<# } #>
+
+<# } #>
+				).ConfigureAwait(false);
+			}));
+		}
+
+<# } #>
+<# for (int i = 1; i <= 16; i++) { #>
+		public void MapPut<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>>(string template, Func<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>, Task> handler) {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+				ParameterInfo[] parameters = handler.Method.GetParameters();
+				await handler.Invoke(
+<# for (int j = 1; j <= i; j++) { #>
+					arg<#= i > 1 ? j.ToString() : "" #>: await GetBodyOrFormOrRequiredArgumentAsync<T<#= j #>>(httpContext, parameters[<#= j - 1 #>].Name!).ConfigureAwait(false)<# if (j < i) { #>,<# } #>
+
+<# } #>
+				).ConfigureAwait(false);
+			}));
+		}
+
+<# } #>
+<# for (int i = 1; i <= 16; i++) { #>
+		public void MapVerb<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>>(string verb, string template, Func<T1<# for (int j = 2; j <= i; j++) { #>, T<#= j #><# } #>, Task> handler) {
+			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+				ParameterInfo[] parameters = handler.Method.GetParameters();
+				await handler.Invoke(
+<# for (int j = 1; j <= i; j++) { #>
+					arg<#= i > 1 ? j.ToString() : "" #>: await GetBodyOrFormOrRequiredArgumentAsync<T<#= j #>>(httpContext, parameters[<#= j - 1 #>].Name!).ConfigureAwait(false)<# if (j < i) { #>,<# } #>
+
+<# } #>
+				).ConfigureAwait(false);
+			}));
+		}
+
+<# } #>
+		public void Map(Action<ExpressAppRouter> setupAction) {
+			setupAction.Invoke(this);
+		}
+
+		[SuppressMessage("Globalization", "CA1305:Specify IFormatProvider", Justification = "This is a general purpose library.")]
+		private static T GetRequiredArgument<T>(HttpContext httpContext, string parameterName) {
+			if (typeof(T) == typeof(HttpContext)) {
+				return (T)Convert.ChangeType(httpContext, httpContext.GetType());
+			} else if (typeof(T) == typeof(HttpRequest)) {
+				HttpRequest request = httpContext.Request;
+				return (T)Convert.ChangeType(request, request.GetType());
+			} else if (typeof(T) == typeof(HttpResponse)) {
+				HttpResponse response = httpContext.Response;
+				return (T)Convert.ChangeType(response, response.GetType());
+			} else if (typeof(T) == typeof(RouteData)) {
+				RouteData routeData = httpContext.GetRouteData();
+				return (T)Convert.ChangeType(routeData, routeData.GetType());
+			} else if (typeof(T) == typeof(CancellationToken)) {
+				return (T)Convert.ChangeType(httpContext.RequestAborted, typeof(CancellationToken));
+			} else if (typeof(T) == typeof(string)) {
+				if (httpContext.GetRouteData().Values.TryGetValue(parameterName, out object value)) {
+					return (T)Convert.ChangeType(value.ToString(), typeof(string))!;
+				} else {
+					return default!;
+				}
+			} else if (typeof(T) == typeof(int) || typeof(T) == typeof(int?)) {
+				if (httpContext.GetRouteData().Values.TryGetValue(parameterName, out object value)) {
+					if (value is string s && int.TryParse(s, out int v)) {
+						return (T)Convert.ChangeType(v, typeof(T));
+					} else if (value is int i) {
+						return (T)Convert.ChangeType(i, typeof(T));
+					} else {
+						return default!;
+					}
+				} else {
+					return default!;
+				}
+			} else {
+				return httpContext.RequestServices.GetRequiredService<T>();
+			}
+		}
+
+		[SuppressMessage("Globalization", "CA1305:Specify IFormatProvider", Justification = "This is a general purpose library.")]
+		private static async Task<T> GetBodyOrFormOrRequiredArgumentAsync<T>(HttpContext httpContext, string parameterName) {
+			if (parameterName == "body") {
+				using StreamReader streamReader = new StreamReader(httpContext.Request.Body);
+				string json = await streamReader.ReadToEndAsync().ConfigureAwait(false);
+				return JsonConvert.DeserializeObject<T>(json);
+			} else if (typeof(T) == typeof(IFormCollection)) {
+				IFormCollection form = await httpContext.Request.ReadFormAsync(httpContext.RequestAborted).ConfigureAwait(false);
+				return (T)Convert.ChangeType(form, form.GetType());
+			} else {
+				return GetRequiredArgument<T>(httpContext, parameterName);
+			}
+		}
+	}
+}

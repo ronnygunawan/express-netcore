@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Routers.Routers;
 using Routers.Services;
 
-AspexApp app = new AspexApp(args);
+ExpressApp app = new ExpressApp(args);
 
 app.AddSingleton<HttpClient>();
 app.AddMemoryCache();
