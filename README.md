@@ -1,4 +1,20 @@
+[![NuGet](https://img.shields.io/nuget/v/RG.ExpressNetCore.svg)](https://www.nuget.org/packages/RG.ExpressNetCore/)
+
 # ExpressNetCore - Express-style wrapper for Asp.Net Core
+
+### Installation
+Prerequisites:
+- [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
+- [.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
+
+Creating new project:
+- From `Create a new project` window select `ASP.NET Core Web Application`
+- Enter project name
+- Select `ASP.NET Core 5.0` target framework, and `Empty` project type
+- In the newly created project, type following command in `Package Manager Console`:
+```
+Install-Package RG.ExpressNetCore
+```
 
 ### Hello World
 
@@ -44,13 +60,3 @@ public class StudentsRouter {
     }
 }
 ```
-
-### This project is a work in progress
-Currently being developed:
-- [x] ~~Rendering Razor views and Razor pages~~
-- [ ] Middleware, WebSocket, Server Error Page, and 404 Page
-- [x] ~~React support~~
-- [ ] Blazor support
-- [x] ~~Entity Framework support~~
-- [ ] Authentication and Authorization for idiots
-- [ ] Visual Studio project template
