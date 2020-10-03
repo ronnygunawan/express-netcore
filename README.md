@@ -62,7 +62,7 @@ app.MapPost("/students", async (HttpResponse res, IService svc, AddStudentPayloa
 app.AddTransient<IStudentRepository, StudentRepository>();
 app.AddTransient<ILogger, Logger>();
 
-// Use services in route lambda arguments
+// Use registered services in lambda arguments. They will be automatically resolved.
 app.MapPost("/students", async (HttpResponse res, IStudentRepository repo, ILogger logger, AddStudentPayload body) => {
     await repo.AddStudentAsync(body.Name, body.Address);
 	logger.Log("Student added");
@@ -73,14 +73,15 @@ app.MapPost("/students", async (HttpResponse res, IStudentRepository repo, ILogg
 #### 2. Route parameters
 
 ```cs
-// a and b will be resolved to route parameters with same name
+// a and b will be resolved as route parameters with same name
 app.MapGet("/add/{a}/{b}", (HttpResponse res, int a, int b) => res.WriteAsync($"{a + b}"));
 ```
 
 #### 3. Query strings
 
 ```cs
-// a and b will be resolved to query strings with same name
+// a and b will be resolved as query strings with same name
+// eg. /add?a=1&b=2
 app.MapGet("/add", (HttpResponse res, int a, int b) => res.WriteAsync($"{a + b}"));
 ```
 
