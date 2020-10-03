@@ -74,7 +74,7 @@ app.MapGet("/students/{name}", (HttpResponse res, IService svc, string name) =>
 
 ## Routers
 ```cs
-app.MapRouter<StudentsRouter>("students");
+app.MapRouter<StudentsRouter>("/students");
 
 public class StudentsRouter {
     private readonly IService _service;
