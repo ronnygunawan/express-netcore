@@ -73,6 +73,9 @@ app.MapGet("/students/{name}", (HttpResponse res, IService svc, string name) =>
 ```
 
 ## Routers
+
+Works similar to MVC Controllers, but with method-level dependency injection
+
 ```cs
 app.MapRouter<StudentsRouter>("/students");
 
