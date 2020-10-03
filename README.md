@@ -53,17 +53,50 @@ app.MapPost("/students", async (HttpResponse res, IService svc, AddStudentPayloa
 });
 ```
 
-#### Available dependencies
+### Available dependencies
 
-- Any registered services
-- Route parameters
-- Query strings
-- Request body (parameter must be named `body`)
-- Request form (parameter must be of type `IFormCollection`)
-- `HttpContext`
-- `HttpRequest`
-- `HttpResponse`
-- `CancellationToken`
+#### 1. Any registered services
+
+```cs
+// Register services
+app.AddTransient<IStudentRepository, StudentRepository>();
+app.AddTransient<ILogger, Logger>();
+
+// Use services in route lambda arguments
+app.MapPost("/students", async (HttpResponse res, IStudentRepository repo, ILogger logger, AddStudentPayload body) => {
+    await repo.AddStudentAsync(body.Name, body.Address);
+	logger.Log("Student added");
+	res.StatusCode = 201;
+});
+```
+
+#### 2. Route parameters
+
+```cs
+// a and b will be resolved to route parameters with same name
+app.MapGet("/add/{a}/{b}", (HttpResponse res, int a, int b) => res.WriteAsync($"{a + b}"));
+```
+
+#### 3. Query strings
+
+```cs
+// a and b will be resolved to query strings with same name
+app.MapGet("/add", (HttpResponse res, int a, int b) => res.WriteAsync($"{a + b}"));
+```
+
+#### 4. Request body (parameter must be named `body`)
+
+```cs
+app.MapPost("/add", (HttpResponse res, AddPayload body) => res.WriteAsync($"{body.A + body.B}"));
+```
+
+#### 5. Request form (parameter must be of type `IFormCollection`)
+
+```cs
+app.MapPost("/add", (HttpResponse res, IFormCollection form) => res.WriteAsync($"You uploaded {form.Files.Count} files."));
+```
+
+#### 6. `HttpContext`, `HttpRequest`, `HttpResponse`, and `CancellationToken`
 
 ## Render Razor View
 ```cs
