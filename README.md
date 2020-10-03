@@ -2,7 +2,16 @@
 
 # ExpressNetCore - Express-style wrapper for Asp.Net Core
 
-Installation:
+### Installation
+Prerequisites:
+- [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
+- [.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
+
+Creating new project:
+- From `Create a new project` window select `ASP.NET Core Web Application`
+- Enter project name
+- Select `ASP.NET Core 5.0` target framework, and `Empty` project type
+- In the newly created project, type following command in `Package Manager Console`:
 ```
 Install-Package RG.ExpressNetCore
 ```
