@@ -1,4 +1,11 @@
+[![NuGet](https://img.shields.io/nuget/v/RG.ExpressNetCore.svg)](https://www.nuget.org/packages/RG.ExpressNetCore/)
+
 # ExpressNetCore - Express-style wrapper for Asp.Net Core
+
+Installation:
+```
+Install-Package RG.ExpressNetCore
+```
 
 ### Hello World
 
