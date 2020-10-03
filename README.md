@@ -60,13 +60,3 @@ public class StudentsRouter {
     }
 }
 ```
-
-### This project is a work in progress
-Currently being developed:
-- [x] ~~Rendering Razor views and Razor pages~~
-- [ ] Middleware, WebSocket, Server Error Page, and 404 Page
-- [x] ~~React support~~
-- [ ] Blazor support
-- [x] ~~Entity Framework support~~
-- [ ] Authentication and Authorization for idiots
-- [ ] Visual Studio project template
