@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>Basic ExpressNetCore Website</Name>
+    <Description>Basic ExpressNetCore Website</Description>
+    <Icon>ExpressNetCoreBasicTemplate.ico</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <LanguageTag>csharp</LanguageTag>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>e98bf45f-d3ee-4130-a8a4-bb41954bffb4</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>ExpressNetCoreWebsite</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+		<LanguageTag>CSharp</LanguageTag>
+		<PlatformTag>Windows</PlatformTag>
+		<PlatformTag>Linux</PlatformTag>
+		<PlatformTag>macOS</PlatformTag>
+		<ProjectTypeTag>Web</ProjectTypeTag>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Program.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">appsettings.json</ProjectItem>
+			<ProjectItem ReplaceParameters="true">appsettings.Development.json</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="Properties\launchSettings.json">launchSettings.json</ProjectItem>
+			<ProjectItem ReplaceParameters="true">Views\Shared\_Layout.cshtml</ProjectItem>
+			<ProjectItem ReplaceParameters="true">Views\Home\Index.cshtml</ProjectItem>
+			<ProjectItem ReplaceParameters="true">Views\Home\About.cshtml</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -9,6 +9,14 @@
     <Version>1.0.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageId>RG.ExpressNetCore</PackageId>
+    <Authors>Ronny Gunawan</Authors>
+    <Product>RG.ExpressNetCore</Product>
+    <Description>RG.ExpressNetCore</Description>
+    <Copyright>(C) 2020 Ronny Gunawan</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/ronnygunawan/express-netcore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ronnygunawan/express-netcore</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
