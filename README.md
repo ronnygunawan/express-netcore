@@ -6,7 +6,7 @@ Here's a fully working ASP.NET Core Web Application written in only a few lines 
 
 ![screenshot.png](https://raw.githubusercontent.com/ronnygunawan/express-netcore/master/screenshot.png)
 
-### Installation
+## Installation
 Prerequisites:
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
 - [.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
@@ -20,7 +20,7 @@ Creating new project:
 Install-Package RG.ExpressNetCore
 ```
 
-### Hello World
+## Hello World
 
 ```cs
 var app = new ExpressApp();
@@ -28,7 +28,20 @@ app.MapGet("/", ctx => ctx.Response.WriteAsync("Hello world!!"));
 app.Run();
 ```
 
-### Method-level Dependency Injection
+## Routing
+
+```cs
+app.MapDelete("/", ctx => ctx.Response.StatusCode = 204);
+app.MapGet("/", ctx => ctx.Response.WriteAsync("Hello world!!"));
+app.MapPost("/", (HttpContext ctx, Payload body) => ctx.Response.WriteAsync($"Hello {body.Name}!!"));
+app.MapPut("/", ctx => ctx.Response.WriteAsync("Hello world!!"));
+app.MapVerb("HEAD", "/", ctx => ctx.Response.WriteAsync("Hello world!!"));
+```
+
+## Method-level Dependency Injection
+
+Any specified lambda parameters will be resolved using Dependency Injection
+
 ```cs
 app.AddTransient<IService, Service>();
 app.MapGet("/students/{name}", (HttpResponse res, IService svc, string name) =>
@@ -40,14 +53,26 @@ app.MapPost("/students", async (HttpResponse res, IService svc, AddStudentPayloa
 });
 ```
 
-### Render Razor View
+#### Available dependencies
+
+- Any registered services
+- Route parameters
+- Query strings
+- Request body (parameter must be named `body`)
+- Request form (parameter must be of type `IFormCollection`)
+- `HttpContext`
+- `HttpRequest`
+- `HttpResponse`
+- `CancellationToken`
+
+## Render Razor View
 ```cs
 app.MapGet("/students/{name}", (HttpResponse res, IService svc, string name) =>
     res.RenderRazorViewAsync("Students/Profile", svc.GetStudent(name))
 );
 ```
 
-### Routers
+## Routers
 ```cs
 app.MapRouter<StudentsRouter>("students");
 
