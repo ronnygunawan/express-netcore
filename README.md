@@ -2,6 +2,10 @@
 
 # ExpressNetCore - Express-style wrapper for Asp.Net Core
 
+Here's a fully working ASP.NET Core Web Application written in only a few lines of code using ExpressNetCore:
+
+![screenshot.png](https://raw.githubusercontent.com/ronnygunawan/express-netcore/master/screenshot.png)
+
 ### Installation
 Prerequisites:
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
