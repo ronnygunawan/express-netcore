@@ -126,3 +126,11 @@ public class StudentsRouter {
     }
 }
 ```
+
+## Hosting React SPA
+
+Create a new folder containing your React app using `npx create-react-app ClientApp`, then configure your web app:
+
+```cs
+app.AddSpa(sourcePath: "ClientApp", buildPath: "ClientApp/build", devServerNpmScript: "start");
+```
