@@ -53,7 +53,7 @@ app.MapPost("/students", async (HttpResponse res, IService svc, AddStudentPayloa
 });
 ```
 
-### Available dependencies
+### Available lambda parameters
 
 #### 1. Any registered services
 
@@ -99,7 +99,7 @@ app.MapPost("/add", (HttpResponse res, IFormCollection form) => res.WriteAsync($
 
 #### 6. `HttpContext`, `HttpRequest`, `HttpResponse`, and `CancellationToken`
 
-## Render Razor View
+## Rendering Razor Views
 ```cs
 app.MapGet("/students/{name}", (HttpResponse res, IService svc, string name) =>
     res.RenderRazorViewAsync("Students/Profile", svc.GetStudent(name))
