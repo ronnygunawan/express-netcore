@@ -3,7 +3,14 @@ end_of_line = crlf
 indent_style = tab
 trim_trailing_whitespace = true
 
+[*.{json,csproj}]
+indent_size = 2
+
+[*.{tt,less,ts,tsx,cshtml,razor}]
+indent_size = 4
+
 [*.cs]
+indent_size = 4
 insert_final_newline = true
 csharp_style_conditional_delegate_call = true:suggestion
 csharp_style_expression_bodied_accessors = when_on_single_line:suggestion
