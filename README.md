@@ -65,8 +65,8 @@ app.AddTransient<ILogger, Logger>();
 // Use registered services in lambda arguments. They will be automatically resolved.
 app.MapPost("/students", async (HttpResponse res, IStudentRepository repo, ILogger logger, AddStudentPayload body) => {
     await repo.AddStudentAsync(body.Name, body.Address);
-	logger.Log("Student added");
-	res.StatusCode = 201;
+    logger.Log("Student added");
+    res.StatusCode = 201;
 });
 ```
 
