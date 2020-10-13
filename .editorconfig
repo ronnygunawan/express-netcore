@@ -3,10 +3,10 @@ end_of_line = crlf
 indent_style = tab
 trim_trailing_whitespace = true
 
-[*.{json,csproj}]
+[*.{json,csproj,xml,html}]
 indent_size = 2
 
-[*.{tt,less,ts,tsx,cshtml,razor}]
+[*.{tt,css,less,sass,scss,js,ts,tsx,cshtml,razor}]
 indent_size = 4
 
 [*.cs]
