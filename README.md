@@ -102,7 +102,7 @@ app.MapPost("/add", (HttpResponse res, IFormCollection form) => res.WriteAsync($
 ## Rendering Razor Views
 ```cs
 app.MapGet("/students/{name}", (HttpResponse res, IService svc, string name) =>
-    res.RenderRazorViewAsync("Students/Profile", svc.GetStudent(name))
+    res.RenderAsync("Students/Profile", svc.GetStudent(name))
 );
 ```
 
@@ -122,7 +122,7 @@ public class StudentsRouter {
 
     [MapGet("{name}")]
     public async Task GetStudent(HttpResponse res, string name) {
-        res.RenderRazorViewAsync("Students/Profile", _service.GetStudent(name));
+        res.RenderAsync("Students/Profile", _service.GetStudent(name));
     }
 }
 ```

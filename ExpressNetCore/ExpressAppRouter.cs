@@ -12,7 +12,8 @@ using Newtonsoft.Json;
 
 namespace ExpressNetCore {
 	public partial class ExpressApp {
-		public void MapDelete<T1>(string template, Func<T1, Task> handler) {
+		public void MapDelete<T1>(string template, Func<T1, Task> handler)
+			where T1 : notnull {
 			RouteSetupActions.Add(builder => builder.MapDelete(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -21,7 +22,9 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2>(string template, Func<T1, T2, Task> handler) {
+		public void MapDelete<T1, T2>(string template, Func<T1, T2, Task> handler)
+			where T1 : notnull
+			where T2 : notnull {
 			RouteSetupActions.Add(builder => builder.MapDelete(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -31,7 +34,10 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3>(string template, Func<T1, T2, T3, Task> handler) {
+		public void MapDelete<T1, T2, T3>(string template, Func<T1, T2, T3, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull {
 			RouteSetupActions.Add(builder => builder.MapDelete(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -42,7 +48,11 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4>(string template, Func<T1, T2, T3, T4, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4>(string template, Func<T1, T2, T3, T4, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull {
 			RouteSetupActions.Add(builder => builder.MapDelete(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -54,7 +64,12 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5>(string template, Func<T1, T2, T3, T4, T5, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5>(string template, Func<T1, T2, T3, T4, T5, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull {
 			RouteSetupActions.Add(builder => builder.MapDelete(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -67,7 +82,13 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5, T6>(string template, Func<T1, T2, T3, T4, T5, T6, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5, T6>(string template, Func<T1, T2, T3, T4, T5, T6, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull {
 			RouteSetupActions.Add(builder => builder.MapDelete(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -81,7 +102,14 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5, T6, T7>(string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5, T6, T7>(string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull {
 			RouteSetupActions.Add(builder => builder.MapDelete(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -96,7 +124,15 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull {
 			RouteSetupActions.Add(builder => builder.MapDelete(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -112,7 +148,16 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull {
 			RouteSetupActions.Add(builder => builder.MapDelete(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -129,7 +174,17 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull {
 			RouteSetupActions.Add(builder => builder.MapDelete(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -147,7 +202,18 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull {
 			RouteSetupActions.Add(builder => builder.MapDelete(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -166,7 +232,19 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull {
 			RouteSetupActions.Add(builder => builder.MapDelete(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -186,7 +264,20 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull {
 			RouteSetupActions.Add(builder => builder.MapDelete(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -207,7 +298,21 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull {
 			RouteSetupActions.Add(builder => builder.MapDelete(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -229,7 +334,22 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull
+			where T15 : notnull {
 			RouteSetupActions.Add(builder => builder.MapDelete(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -252,7 +372,23 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull
+			where T15 : notnull
+			where T16 : notnull {
 			RouteSetupActions.Add(builder => builder.MapDelete(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -276,7 +412,8 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1>(string template, Func<T1, Task> handler) {
+		public void MapGet<T1>(string template, Func<T1, Task> handler)
+			where T1 : notnull {
 			RouteSetupActions.Add(builder => builder.MapGet(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -285,7 +422,9 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2>(string template, Func<T1, T2, Task> handler) {
+		public void MapGet<T1, T2>(string template, Func<T1, T2, Task> handler)
+			where T1 : notnull
+			where T2 : notnull {
 			RouteSetupActions.Add(builder => builder.MapGet(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -295,7 +434,10 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3>(string template, Func<T1, T2, T3, Task> handler) {
+		public void MapGet<T1, T2, T3>(string template, Func<T1, T2, T3, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull {
 			RouteSetupActions.Add(builder => builder.MapGet(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -306,7 +448,11 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4>(string template, Func<T1, T2, T3, T4, Task> handler) {
+		public void MapGet<T1, T2, T3, T4>(string template, Func<T1, T2, T3, T4, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull {
 			RouteSetupActions.Add(builder => builder.MapGet(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -318,7 +464,12 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5>(string template, Func<T1, T2, T3, T4, T5, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5>(string template, Func<T1, T2, T3, T4, T5, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull {
 			RouteSetupActions.Add(builder => builder.MapGet(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -331,7 +482,13 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5, T6>(string template, Func<T1, T2, T3, T4, T5, T6, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5, T6>(string template, Func<T1, T2, T3, T4, T5, T6, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull {
 			RouteSetupActions.Add(builder => builder.MapGet(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -345,7 +502,14 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5, T6, T7>(string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5, T6, T7>(string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull {
 			RouteSetupActions.Add(builder => builder.MapGet(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -360,7 +524,15 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull {
 			RouteSetupActions.Add(builder => builder.MapGet(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -376,7 +548,16 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull {
 			RouteSetupActions.Add(builder => builder.MapGet(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -393,7 +574,17 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull {
 			RouteSetupActions.Add(builder => builder.MapGet(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -411,7 +602,18 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull {
 			RouteSetupActions.Add(builder => builder.MapGet(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -430,7 +632,19 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull {
 			RouteSetupActions.Add(builder => builder.MapGet(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -450,7 +664,20 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull {
 			RouteSetupActions.Add(builder => builder.MapGet(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -471,7 +698,21 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull {
 			RouteSetupActions.Add(builder => builder.MapGet(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -493,7 +734,22 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull
+			where T15 : notnull {
 			RouteSetupActions.Add(builder => builder.MapGet(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -516,7 +772,23 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull
+			where T15 : notnull
+			where T16 : notnull {
 			RouteSetupActions.Add(builder => builder.MapGet(template, httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -540,7 +812,8 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1>(string template, Func<T1, Task> handler) {
+		public void MapPost<T1>(string template, Func<T1, Task> handler)
+			where T1 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPost(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -549,7 +822,9 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2>(string template, Func<T1, T2, Task> handler) {
+		public void MapPost<T1, T2>(string template, Func<T1, T2, Task> handler)
+			where T1 : notnull
+			where T2 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPost(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -559,7 +834,10 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3>(string template, Func<T1, T2, T3, Task> handler) {
+		public void MapPost<T1, T2, T3>(string template, Func<T1, T2, T3, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPost(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -570,7 +848,11 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4>(string template, Func<T1, T2, T3, T4, Task> handler) {
+		public void MapPost<T1, T2, T3, T4>(string template, Func<T1, T2, T3, T4, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPost(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -582,7 +864,12 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5>(string template, Func<T1, T2, T3, T4, T5, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5>(string template, Func<T1, T2, T3, T4, T5, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPost(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -595,7 +882,13 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5, T6>(string template, Func<T1, T2, T3, T4, T5, T6, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5, T6>(string template, Func<T1, T2, T3, T4, T5, T6, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPost(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -609,7 +902,14 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5, T6, T7>(string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5, T6, T7>(string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPost(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -624,7 +924,15 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPost(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -640,7 +948,16 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPost(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -657,7 +974,17 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPost(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -675,7 +1002,18 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPost(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -694,7 +1032,19 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPost(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -714,7 +1064,20 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPost(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -735,7 +1098,21 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPost(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -757,7 +1134,22 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull
+			where T15 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPost(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -780,7 +1172,23 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull
+			where T15 : notnull
+			where T16 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPost(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -804,7 +1212,8 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1>(string template, Func<T1, Task> handler) {
+		public void MapPut<T1>(string template, Func<T1, Task> handler)
+			where T1 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPut(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -813,7 +1222,9 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2>(string template, Func<T1, T2, Task> handler) {
+		public void MapPut<T1, T2>(string template, Func<T1, T2, Task> handler)
+			where T1 : notnull
+			where T2 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPut(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -823,7 +1234,10 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3>(string template, Func<T1, T2, T3, Task> handler) {
+		public void MapPut<T1, T2, T3>(string template, Func<T1, T2, T3, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPut(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -834,7 +1248,11 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4>(string template, Func<T1, T2, T3, T4, Task> handler) {
+		public void MapPut<T1, T2, T3, T4>(string template, Func<T1, T2, T3, T4, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPut(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -846,7 +1264,12 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5>(string template, Func<T1, T2, T3, T4, T5, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5>(string template, Func<T1, T2, T3, T4, T5, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPut(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -859,7 +1282,13 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5, T6>(string template, Func<T1, T2, T3, T4, T5, T6, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5, T6>(string template, Func<T1, T2, T3, T4, T5, T6, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPut(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -873,7 +1302,14 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5, T6, T7>(string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5, T6, T7>(string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPut(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -888,7 +1324,15 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPut(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -904,7 +1348,16 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPut(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -921,7 +1374,17 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPut(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -939,7 +1402,18 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPut(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -958,7 +1432,19 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPut(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -978,7 +1464,20 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPut(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -999,7 +1498,21 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPut(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1021,7 +1534,22 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull
+			where T15 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPut(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1044,7 +1572,23 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull
+			where T15 : notnull
+			where T16 : notnull {
 			RouteSetupActions.Add(builder => builder.MapPut(template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1068,7 +1612,8 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1>(string verb, string template, Func<T1, Task> handler) {
+		public void MapVerb<T1>(string verb, string template, Func<T1, Task> handler)
+			where T1 : notnull {
 			RouteSetupActions.Add(builder => builder.MapVerb(verb, template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1077,7 +1622,9 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2>(string verb, string template, Func<T1, T2, Task> handler) {
+		public void MapVerb<T1, T2>(string verb, string template, Func<T1, T2, Task> handler)
+			where T1 : notnull
+			where T2 : notnull {
 			RouteSetupActions.Add(builder => builder.MapVerb(verb, template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1087,7 +1634,10 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3>(string verb, string template, Func<T1, T2, T3, Task> handler) {
+		public void MapVerb<T1, T2, T3>(string verb, string template, Func<T1, T2, T3, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull {
 			RouteSetupActions.Add(builder => builder.MapVerb(verb, template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1098,7 +1648,11 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4>(string verb, string template, Func<T1, T2, T3, T4, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4>(string verb, string template, Func<T1, T2, T3, T4, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull {
 			RouteSetupActions.Add(builder => builder.MapVerb(verb, template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1110,7 +1664,12 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5>(string verb, string template, Func<T1, T2, T3, T4, T5, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5>(string verb, string template, Func<T1, T2, T3, T4, T5, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull {
 			RouteSetupActions.Add(builder => builder.MapVerb(verb, template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1123,7 +1682,13 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5, T6>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5, T6>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull {
 			RouteSetupActions.Add(builder => builder.MapVerb(verb, template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1137,7 +1702,14 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5, T6, T7>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5, T6, T7>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull {
 			RouteSetupActions.Add(builder => builder.MapVerb(verb, template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1152,7 +1724,15 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull {
 			RouteSetupActions.Add(builder => builder.MapVerb(verb, template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1168,7 +1748,16 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull {
 			RouteSetupActions.Add(builder => builder.MapVerb(verb, template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1185,7 +1774,17 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull {
 			RouteSetupActions.Add(builder => builder.MapVerb(verb, template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1203,7 +1802,18 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull {
 			RouteSetupActions.Add(builder => builder.MapVerb(verb, template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1222,7 +1832,19 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull {
 			RouteSetupActions.Add(builder => builder.MapVerb(verb, template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1242,7 +1864,20 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull {
 			RouteSetupActions.Add(builder => builder.MapVerb(verb, template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1263,7 +1898,21 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull {
 			RouteSetupActions.Add(builder => builder.MapVerb(verb, template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1285,7 +1934,22 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull
+			where T15 : notnull {
 			RouteSetupActions.Add(builder => builder.MapVerb(verb, template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1308,7 +1972,23 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull
+			where T15 : notnull
+			where T16 : notnull {
 			RouteSetupActions.Add(builder => builder.MapVerb(verb, template, async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1337,7 +2017,7 @@ namespace ExpressNetCore {
 		}
 
 		[SuppressMessage("Globalization", "CA1305:Specify IFormatProvider", Justification = "This is a general purpose library.")]
-		private T GetRequiredArgument<T>(HttpContext httpContext, string parameterName) {
+		private static T GetRequiredArgument<T>(HttpContext httpContext, string parameterName) where T : notnull {
 			if (typeof(T) == typeof(HttpContext)) {
 				return (T)Convert.ChangeType(httpContext, httpContext.GetType());
 			} else if (typeof(T) == typeof(HttpRequest)) {
@@ -1352,13 +2032,13 @@ namespace ExpressNetCore {
 			} else if (typeof(T) == typeof(CancellationToken)) {
 				return (T)Convert.ChangeType(httpContext.RequestAborted, typeof(CancellationToken));
 			} else if (typeof(T) == typeof(string)) {
-				if (httpContext.GetRouteData().Values.TryGetValue(parameterName, out object value)) {
-					return (T)Convert.ChangeType(value.ToString(), typeof(string))!;
+				if (httpContext.GetRouteData().Values.TryGetValue(parameterName, out object? value)) {
+					return (T)Convert.ChangeType(value?.ToString(), typeof(string))!;
 				} else {
 					return default!;
 				}
 			} else if (typeof(T) == typeof(int) || typeof(T) == typeof(int?)) {
-				if (httpContext.GetRouteData().Values.TryGetValue(parameterName, out object value)) {
+				if (httpContext.GetRouteData().Values.TryGetValue(parameterName, out object? value)) {
 					if (value is string s && int.TryParse(s, out int v)) {
 						return (T)Convert.ChangeType(v, typeof(T));
 					} else if (value is int i) {
@@ -1375,7 +2055,7 @@ namespace ExpressNetCore {
 		}
 
 		[SuppressMessage("Globalization", "CA1305:Specify IFormatProvider", Justification = "This is a general purpose library.")]
-		private async Task<T> GetBodyOrFormOrRequiredArgumentAsync<T>(HttpContext httpContext, string parameterName) {
+		private static async Task<T> GetBodyOrFormOrRequiredArgumentAsync<T>(HttpContext httpContext, string parameterName) where T : notnull {
 			if (parameterName == "body") {
 				using StreamReader streamReader = new StreamReader(httpContext.Request.Body);
 				string json = await streamReader.ReadToEndAsync().ConfigureAwait(false);
@@ -1398,7 +2078,8 @@ namespace ExpressNetCore {
 			_basePath = basePath;
 		}
 
-		public void MapDelete<T1>(string template, Func<T1, Task> handler) {
+		public void MapDelete<T1>(string template, Func<T1, Task> handler)
+			where T1 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1407,7 +2088,9 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2>(string template, Func<T1, T2, Task> handler) {
+		public void MapDelete<T1, T2>(string template, Func<T1, T2, Task> handler)
+			where T1 : notnull
+			where T2 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1417,7 +2100,10 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3>(string template, Func<T1, T2, T3, Task> handler) {
+		public void MapDelete<T1, T2, T3>(string template, Func<T1, T2, T3, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1428,7 +2114,11 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4>(string template, Func<T1, T2, T3, T4, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4>(string template, Func<T1, T2, T3, T4, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1440,7 +2130,12 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5>(string template, Func<T1, T2, T3, T4, T5, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5>(string template, Func<T1, T2, T3, T4, T5, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1453,7 +2148,13 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5, T6>(string template, Func<T1, T2, T3, T4, T5, T6, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5, T6>(string template, Func<T1, T2, T3, T4, T5, T6, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1467,7 +2168,14 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5, T6, T7>(string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5, T6, T7>(string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1482,7 +2190,15 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1498,7 +2214,16 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1515,7 +2240,17 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1533,7 +2268,18 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1552,7 +2298,19 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1572,7 +2330,20 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1593,7 +2364,21 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1615,7 +2400,22 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull
+			where T15 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1638,7 +2438,23 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler) {
+		public void MapDelete<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull
+			where T15 : notnull
+			where T16 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1662,7 +2478,8 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1>(string template, Func<T1, Task> handler) {
+		public void MapGet<T1>(string template, Func<T1, Task> handler)
+			where T1 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1671,7 +2488,9 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2>(string template, Func<T1, T2, Task> handler) {
+		public void MapGet<T1, T2>(string template, Func<T1, T2, Task> handler)
+			where T1 : notnull
+			where T2 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1681,7 +2500,10 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3>(string template, Func<T1, T2, T3, Task> handler) {
+		public void MapGet<T1, T2, T3>(string template, Func<T1, T2, T3, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1692,7 +2514,11 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4>(string template, Func<T1, T2, T3, T4, Task> handler) {
+		public void MapGet<T1, T2, T3, T4>(string template, Func<T1, T2, T3, T4, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1704,7 +2530,12 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5>(string template, Func<T1, T2, T3, T4, T5, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5>(string template, Func<T1, T2, T3, T4, T5, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1717,7 +2548,13 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5, T6>(string template, Func<T1, T2, T3, T4, T5, T6, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5, T6>(string template, Func<T1, T2, T3, T4, T5, T6, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1731,7 +2568,14 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5, T6, T7>(string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5, T6, T7>(string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1746,7 +2590,15 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1762,7 +2614,16 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1779,7 +2640,17 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1797,7 +2668,18 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1816,7 +2698,19 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1836,7 +2730,20 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1857,7 +2764,21 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1879,7 +2800,22 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull
+			where T15 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1902,7 +2838,23 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler) {
+		public void MapGet<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull
+			where T15 : notnull
+			where T16 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
@@ -1926,7 +2878,8 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1>(string template, Func<T1, Task> handler) {
+		public void MapPost<T1>(string template, Func<T1, Task> handler)
+			where T1 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1935,7 +2888,9 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2>(string template, Func<T1, T2, Task> handler) {
+		public void MapPost<T1, T2>(string template, Func<T1, T2, Task> handler)
+			where T1 : notnull
+			where T2 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1945,7 +2900,10 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3>(string template, Func<T1, T2, T3, Task> handler) {
+		public void MapPost<T1, T2, T3>(string template, Func<T1, T2, T3, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1956,7 +2914,11 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4>(string template, Func<T1, T2, T3, T4, Task> handler) {
+		public void MapPost<T1, T2, T3, T4>(string template, Func<T1, T2, T3, T4, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1968,7 +2930,12 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5>(string template, Func<T1, T2, T3, T4, T5, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5>(string template, Func<T1, T2, T3, T4, T5, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1981,7 +2948,13 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5, T6>(string template, Func<T1, T2, T3, T4, T5, T6, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5, T6>(string template, Func<T1, T2, T3, T4, T5, T6, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -1995,7 +2968,14 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5, T6, T7>(string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5, T6, T7>(string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2010,7 +2990,15 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2026,7 +3014,16 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2043,7 +3040,17 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2061,7 +3068,18 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2080,7 +3098,19 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2100,7 +3130,20 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2121,7 +3164,21 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2143,7 +3200,22 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull
+			where T15 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2166,7 +3238,23 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler) {
+		public void MapPost<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull
+			where T15 : notnull
+			where T16 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2190,7 +3278,8 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1>(string template, Func<T1, Task> handler) {
+		public void MapPut<T1>(string template, Func<T1, Task> handler)
+			where T1 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2199,7 +3288,9 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2>(string template, Func<T1, T2, Task> handler) {
+		public void MapPut<T1, T2>(string template, Func<T1, T2, Task> handler)
+			where T1 : notnull
+			where T2 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2209,7 +3300,10 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3>(string template, Func<T1, T2, T3, Task> handler) {
+		public void MapPut<T1, T2, T3>(string template, Func<T1, T2, T3, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2220,7 +3314,11 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4>(string template, Func<T1, T2, T3, T4, Task> handler) {
+		public void MapPut<T1, T2, T3, T4>(string template, Func<T1, T2, T3, T4, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2232,7 +3330,12 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5>(string template, Func<T1, T2, T3, T4, T5, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5>(string template, Func<T1, T2, T3, T4, T5, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2245,7 +3348,13 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5, T6>(string template, Func<T1, T2, T3, T4, T5, T6, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5, T6>(string template, Func<T1, T2, T3, T4, T5, T6, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2259,7 +3368,14 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5, T6, T7>(string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5, T6, T7>(string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2274,7 +3390,15 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2290,7 +3414,16 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2307,7 +3440,17 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2325,7 +3468,18 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2344,7 +3498,19 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2364,7 +3530,20 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2385,7 +3564,21 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2407,7 +3600,22 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull
+			where T15 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2430,7 +3638,23 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler) {
+		public void MapPut<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull
+			where T15 : notnull
+			where T16 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2454,7 +3678,8 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1>(string verb, string template, Func<T1, Task> handler) {
+		public void MapVerb<T1>(string verb, string template, Func<T1, Task> handler)
+			where T1 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2463,7 +3688,9 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2>(string verb, string template, Func<T1, T2, Task> handler) {
+		public void MapVerb<T1, T2>(string verb, string template, Func<T1, T2, Task> handler)
+			where T1 : notnull
+			where T2 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2473,7 +3700,10 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3>(string verb, string template, Func<T1, T2, T3, Task> handler) {
+		public void MapVerb<T1, T2, T3>(string verb, string template, Func<T1, T2, T3, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2484,7 +3714,11 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4>(string verb, string template, Func<T1, T2, T3, T4, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4>(string verb, string template, Func<T1, T2, T3, T4, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2496,7 +3730,12 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5>(string verb, string template, Func<T1, T2, T3, T4, T5, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5>(string verb, string template, Func<T1, T2, T3, T4, T5, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2509,7 +3748,13 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5, T6>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5, T6>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2523,7 +3768,14 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5, T6, T7>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5, T6, T7>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2538,7 +3790,15 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2554,7 +3814,16 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2571,7 +3840,17 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2589,7 +3868,18 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2608,7 +3898,19 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2628,7 +3930,20 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2649,7 +3964,21 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2671,7 +4000,22 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull
+			where T15 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2694,7 +4038,23 @@ namespace ExpressNetCore {
 			}));
 		}
 
-		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler) {
+		public void MapVerb<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(string verb, string template, Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, Task> handler)
+			where T1 : notnull
+			where T2 : notnull
+			where T3 : notnull
+			where T4 : notnull
+			where T5 : notnull
+			where T6 : notnull
+			where T7 : notnull
+			where T8 : notnull
+			where T9 : notnull
+			where T10 : notnull
+			where T11 : notnull
+			where T12 : notnull
+			where T13 : notnull
+			where T14 : notnull
+			where T15 : notnull
+			where T16 : notnull {
 			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
@@ -2723,7 +4083,7 @@ namespace ExpressNetCore {
 		}
 
 		[SuppressMessage("Globalization", "CA1305:Specify IFormatProvider", Justification = "This is a general purpose library.")]
-		private static T GetRequiredArgument<T>(HttpContext httpContext, string parameterName) {
+		private static T GetRequiredArgument<T>(HttpContext httpContext, string parameterName) where T : notnull {
 			if (typeof(T) == typeof(HttpContext)) {
 				return (T)Convert.ChangeType(httpContext, httpContext.GetType());
 			} else if (typeof(T) == typeof(HttpRequest)) {
@@ -2738,13 +4098,13 @@ namespace ExpressNetCore {
 			} else if (typeof(T) == typeof(CancellationToken)) {
 				return (T)Convert.ChangeType(httpContext.RequestAborted, typeof(CancellationToken));
 			} else if (typeof(T) == typeof(string)) {
-				if (httpContext.GetRouteData().Values.TryGetValue(parameterName, out object value)) {
-					return (T)Convert.ChangeType(value.ToString(), typeof(string))!;
+				if (httpContext.GetRouteData().Values.TryGetValue(parameterName, out object? value)) {
+					return (T)Convert.ChangeType(value?.ToString(), typeof(string))!;
 				} else {
 					return default!;
 				}
 			} else if (typeof(T) == typeof(int) || typeof(T) == typeof(int?)) {
-				if (httpContext.GetRouteData().Values.TryGetValue(parameterName, out object value)) {
+				if (httpContext.GetRouteData().Values.TryGetValue(parameterName, out object? value)) {
 					if (value is string s && int.TryParse(s, out int v)) {
 						return (T)Convert.ChangeType(v, typeof(T));
 					} else if (value is int i) {
@@ -2761,7 +4121,7 @@ namespace ExpressNetCore {
 		}
 
 		[SuppressMessage("Globalization", "CA1305:Specify IFormatProvider", Justification = "This is a general purpose library.")]
-		private static async Task<T> GetBodyOrFormOrRequiredArgumentAsync<T>(HttpContext httpContext, string parameterName) {
+		private static async Task<T> GetBodyOrFormOrRequiredArgumentAsync<T>(HttpContext httpContext, string parameterName) where T : notnull {
 			if (parameterName == "body") {
 				using StreamReader streamReader = new StreamReader(httpContext.Request.Body);
 				string json = await streamReader.ReadToEndAsync().ConfigureAwait(false);

@@ -10,7 +10,7 @@ app.AddSingleton<HttpClient>();
 app.AddMemoryCache();
 app.AddTransient<DekontaminasiClient>();
 
-app.MapGet("/", (HttpResponse res) => res.RenderRazorViewAsync("Home/Index"));
+app.MapGet("/", (HttpResponse res) => res.RenderAsync("Home/Index"));
 app.MapRouter<Covid19Router>("/covid19");
 
 app.Run();

@@ -167,3 +167,6 @@ dotnet_diagnostic.RCS1001.severity = warning
 
 # RCS1062: Avoid interpolated string with no interpolation.
 dotnet_diagnostic.RCS1062.severity = warning
+
+# CA1812: Startup is an internal class that is apparently never instantiated. If so, remove the code from the assembly. If this class is intended to contain only static members, make it static (Shared in Visual Basic).
+dotnet_diagnostic.CA1812.severity = silent

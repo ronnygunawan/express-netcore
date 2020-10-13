@@ -15,7 +15,12 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace ExpressNetCore {
 	public static class HttpResponseRazorExtensions {
-		public static async Task RenderRazorViewAsync(this HttpResponse response, string viewName, object? model = null, CancellationToken cancellationToken = default) {
+		[Obsolete("RenderRazorViewAsync is deprecated. Use RenderAsync instead.", DiagnosticId = "EXNC0001")]
+		public static Task RenderRazorViewAsync(this HttpResponse response, string viewName, object? model = null, CancellationToken cancellationToken = default) {
+			return response.RenderAsync(viewName, model, cancellationToken);
+		}
+
+		public static async Task RenderAsync(this HttpResponse response, string viewName, object? model = null, CancellationToken cancellationToken = default) {
 			IRazorViewEngine razorViewEngine = response.HttpContext.RequestServices.GetRequiredService<IRazorViewEngine>();
 			ITempDataProvider tempDataProvider = response.HttpContext.RequestServices.GetRequiredService<ITempDataProvider>();
 
