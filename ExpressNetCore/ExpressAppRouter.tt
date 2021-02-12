@@ -158,11 +158,11 @@ namespace ExpressNetCore {
 	}
 
 	public class ExpressAppRouter {
-		private readonly ExpressApp _aspexApp;
+		private readonly ExpressApp _expressApp;
 		private readonly string _basePath;
 
-		public ExpressAppRouter(ExpressApp aspexApp, string basePath) {
-			_aspexApp = aspexApp;
+		public ExpressAppRouter(ExpressApp expressApp, string basePath) {
+			_expressApp = expressApp;
 			_basePath = basePath;
 		}
 
@@ -171,7 +171,7 @@ namespace ExpressNetCore {
 <# for (int j = 1; j < i; j++) { #>
 			where T<#= j #> : notnull
 <# } #>			where T<#= i #> : notnull {
-			_aspexApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_expressApp.RouteSetupActions.Add(builder => builder.MapDelete(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 <# for (int j = 1; j <= i; j++) { #>
@@ -188,7 +188,7 @@ namespace ExpressNetCore {
 <# for (int j = 1; j < i; j++) { #>
 			where T<#= j #> : notnull
 <# } #>			where T<#= i #> : notnull {
-			_aspexApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
+			_expressApp.RouteSetupActions.Add(builder => builder.MapGet(Path.Combine(_basePath, template).Replace('\\', '/'), httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				return handler.Invoke(
 <# for (int j = 1; j <= i; j++) { #>
@@ -205,7 +205,7 @@ namespace ExpressNetCore {
 <# for (int j = 1; j < i; j++) { #>
 			where T<#= j #> : notnull
 <# } #>			where T<#= i #> : notnull {
-			_aspexApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_expressApp.RouteSetupActions.Add(builder => builder.MapPost(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 <# for (int j = 1; j <= i; j++) { #>
@@ -222,7 +222,7 @@ namespace ExpressNetCore {
 <# for (int j = 1; j < i; j++) { #>
 			where T<#= j #> : notnull
 <# } #>			where T<#= i #> : notnull {
-			_aspexApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_expressApp.RouteSetupActions.Add(builder => builder.MapPut(Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 <# for (int j = 1; j <= i; j++) { #>
@@ -239,7 +239,7 @@ namespace ExpressNetCore {
 <# for (int j = 1; j < i; j++) { #>
 			where T<#= j #> : notnull
 <# } #>			where T<#= i #> : notnull {
-			_aspexApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
+			_expressApp.RouteSetupActions.Add(builder => builder.MapVerb(verb, Path.Combine(_basePath, template).Replace('\\', '/'), async httpContext => {
 				ParameterInfo[] parameters = handler.Method.GetParameters();
 				await handler.Invoke(
 <# for (int j = 1; j <= i; j++) { #>
